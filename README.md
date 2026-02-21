@@ -54,12 +54,14 @@ Another improvement would be expanding the information shown on the seven-segmen
 
 • pyserial: Enables UART serial communication for sending data and supporting inter-device monitoring.
 
+
 #### Design Patterns and Frameworks
 • python-statemachine library: Used to implement a formal state machine with clearly defined states and transitions.
 
 • Threading for concurrent operations: Separates display updates from the main thermostat control logic to keep the interface responsive.
 
 • Event-driven programming: Button callbacks trigger actions and state transitions based on user interaction.
+
 
 #### Technical Documentation Resources
 • Raspberry Pi GPIO pinout diagrams and electrical specifications used for correct hardware wiring and configuration.
