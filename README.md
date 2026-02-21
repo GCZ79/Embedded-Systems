@@ -1,5 +1,6 @@
 # Embedded-Systems
 Emerging systems architectures and technologies.
+
 <img width="100%" height="100%" alt="Smarth Thermostat" src="https://github.com/user-attachments/assets/5bf4c3da-cbba-4e3e-bd95-b59af73cc9f8" />
 
 ## Summarize the project and what problem it was solving.
