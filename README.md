@@ -32,7 +32,18 @@ The code is organized with clear sections and consistent documentation throughou
 The temperature scale toggle demonstrates intentional user experience design. A short button press handles normal state changes, while a long press activates Fahrenheit/Celsius conversion without adding extra controls. When the scale changes, the setpoint is automatically recalculated so the thermal threshold remains consistent. Visual confirmation through the blinking C or F indicator with a decimal point provides clear feedback that the conversion was successful.
 
 ## Where could you improve?
-#### Answer
+#### Error Handling and Robustness
+Although cleanup routines include try-except handling, runtime error management could be improved. The LCD initialization already includes a fallback if the device is not detected, but failures during normal operation, such as sensor read errors or I2C communication issues, are not explicitly handled. Adding try-except blocks around temperature reads and introducing retry logic would make the system more robust against temporary hardware or communication failures.
+
+#### Configuration Management
+Several system parameters are currently hardcoded, including GPIO pin assignments (17, 18, 23, 24, 25, 27, 22), the I2C address (0x27), timing intervals (30-second serial updates and 3-second segment timeout), and the default 72°F setpoint. Moving these values into a centralized configuration section or external JSON configuration file would improve maintainability and make the thermostat easier to adapt to different hardware configurations without modifying core logic.
+
+#### Data Persistence
+At the moment, the thermostat resets its state and setpoint after power loss or reboot. Implementing persistence by saving the current state, temperature scale, and setpoint to a file during shutdown and restoring them on startup would improve usability. Storing periodic temperature readings in a CSV log could also allow for historical analysis and long-term trend monitoring.
+
+#### Expanded Seven-Segment Display Usage
+Another improvement would be expanding the information shown on the seven-segment display. Currently it mainly provides status indicators, but it could also display numerical values such as the current temperature or setpoint by showing digits sequentially (for example, 72 displayed as 7 followed by 2). Providing more detailed numeric feedback would reduce dependence on the LCD and potentially allow the thermostat to operate fully even without the LCD connected.
+
 ## What tools and/or resources are you adding to your support network?
 #### Answer
 ## What skills from this project will be particularly transferable to other projects and/or course work?
