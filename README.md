@@ -22,14 +22,15 @@ The system addresses several practical challenges:
 #### State Machine Architecture
 I implemented the thermostat control logic using Python’s statemachine library, which allowed me to clearly separate each operational state and its transitions. Each state includes defined entry and exit behaviors, making the system easier to understand, test, and debug. The transition flow (Off → Heat → Cool → Off) is implemented as a simple and readable cycle, keeping the overall control logic clean and maintainable.
 
-Multi-Modal User Feedback
+#### Multi-Modal User Feedback
 One of the strongest parts of this project is the use of multiple feedback methods for the user interface. The seven-segment display provides quick visual confirmation of actions (H, C, O, u, d), while the LCD shows more detailed system information. LED behavior also communicates system status effectively, using pulsing versus solid light patterns to indicate whether the thermostat is actively working toward the setpoint or has already reached it. This layered feedback helps ensure the system state is clear regardless of how the user interacts with it.
 
-Code Documentation and Organization
+#### Code Documentation and Organization
 The code is organized with clear sections and consistent documentation throughout. I used descriptive headers and comments to explain the purpose of each component and hardware interaction. Helper functions are grouped logically based on functionality, such as seven-segment display control and cleanup routines, and the program structure follows a top-down flow from hardware setup to state machine definition and finally the main execution loop.
 
-Temperature Scale Conversion
+#### Temperature Scale Conversion
 The temperature scale toggle demonstrates intentional user experience design. A short button press handles normal state changes, while a long press activates Fahrenheit/Celsius conversion without adding extra controls. When the scale changes, the setpoint is automatically recalculated so the thermal threshold remains consistent. Visual confirmation through the blinking C or F indicator with a decimal point provides clear feedback that the conversion was successful.
+
 ## Where could you improve?
 #### Answer
 ## What tools and/or resources are you adding to your support network?
