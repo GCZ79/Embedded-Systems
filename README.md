@@ -73,6 +73,36 @@ Another improvement would be expanding the information shown on the seven-segmen
 • PCF8574 I2C expander documentation for interfacing with the LCD backpack module.
 
 ## What skills from this project will be particularly transferable to other projects and/or course work?
-#### Answer
+#### State Machine Design
+Learning how to model system behavior using discrete states and clearly defined transitions is a skill that applies well beyond this project. Using a formal state machine helps avoid overly complex or tangled control logic and makes system behavior easier to reason about and test. This approach is relevant to embedded systems, user interfaces, communication protocols, and even game development where predictable state control is important.
+
+#### Hardware–Software Integration
+Working with multiple communication interfaces at the same time, such as I2C, UART, and GPIO, helped build practical integration skills commonly used in IoT devices, robotics, automotive systems, and industrial automation. Understanding the tradeoffs between protocols, including speed, wiring complexity, required pins, and communication limitations, supports more informed hardware and system design decisions.
+
+#### Real-Time Systems and Threading
+The project required managing concurrent tasks like sensor readings, display updates, button input processing, and serial communication while keeping the system responsive. Separating blocking operations into background threads while maintaining responsive user interaction is a pattern that applies broadly to embedded systems, desktop applications, and server-side software.
+
+#### User Experience Design for Embedded Systems
+Designing an intuitive interface using limited hardware inputs and outputs reinforced the importance of clear feedback mechanisms. Features like short-press versus long-press interactions and layered visual feedback demonstrate how usability can be improved even with constrained interfaces. These concepts translate directly to appliance controls, automotive systems, medical devices, and other embedded environments.
+
+#### System Integration and Testing
+Integrating multiple hardware components with different initialization requirements, timing constraints, and communication methods strengthened troubleshooting and debugging skills. Learning how to isolate problems between hardware wiring, drivers, and application logic is an important capability when working with complex integrated systems.
+
 ## How did you make this project maintainable, readable, and adaptable?
-#### Answer
+#### Documentation and Comments
+Each section of the code starts with a header comment describing its purpose and role within the system. Functions include docstrings explaining behavior, inputs, and expected outputs. For more complex operations, such as the shift register communication, inline comments explain the bit-level logic so the implementation remains understandable during future maintenance. The main header at the top of the file summarizes the overall architecture, connected peripherals, and GPIO assignments.
+
+#### Modular Function Design
+Hardware interactions are organized into focused helper functions such as display_segment(), clear_segment(), blink_segment(), and rotate_segments(). This modular structure isolates hardware-specific behavior, meaning changes to the seven-segment display implementation would only require updates inside these functions. LED behavior is similarly centralized in the updateLights() method, keeping visual feedback logic contained and easy to modify.
+
+#### Separation of Concerns
+The state machine defines what the system should do, while helper methods manage how hardware actions are performed. Display handling runs in a separate thread, preventing display updates from blocking button input or control logic. This separation keeps the architecture flexible and makes it easier to introduce new states or adjust functionality without affecting unrelated components.
+
+#### Consistent Naming Conventions
+Variable and function names are descriptive and self-explanatory, improving readability. Examples include tempScale instead of abbreviated names, setPoint instead of sp, and last_segment_update instead of shortened identifiers. State names such as off, heat, and cool directly match the physical interface, maintaining consistency between the codebase and user interaction.
+
+#### Graceful Shutdown and Cleanup
+The cleanupAll() function ensures all hardware resources are safely released during shutdown. Displays are cleared, LEDs are turned off, GPIO pins are released, and background threads are stopped. Cleanup operations also include exception handling so the system can exit safely even if initialization was only partially completed.
+
+#### Configuration Flexibility
+A DEBUG flag allows verbose logging to be enabled or disabled without changing core logic, making it easy to switch between development testing and normal operation. Although configuration management could be expanded further, this demonstrates consideration for adaptable runtime behavior.
