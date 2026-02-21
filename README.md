@@ -45,7 +45,23 @@ At the moment, the thermostat resets its state and setpoint after power loss or 
 Another improvement would be expanding the information shown on the seven-segment display. Currently it mainly provides status indicators, but it could also display numerical values such as the current temperature or setpoint by showing digits sequentially (for example, 72 displayed as 7 followed by 2). Providing more detailed numeric feedback would reduce dependence on the LCD and potentially allow the thermostat to operate fully even without the LCD connected.
 
 ## What tools and/or resources are you adding to your support network?
-#### Answer
+#### Hardware Integration Libraries
+• gpiozero: Provides a clean abstraction layer for GPIO control, simplifying button and LED management while supporting built-in features such as hold detection.
+• RPLCD: Used for I2C communication with the LCD, allowing simple text positioning and display updates.
+• adafruit_ahtx0: Handles communication with the AHT20 sensor to read temperature and humidity data reliably.
+• pyserial: Enables UART serial communication for sending data and supporting inter-device monitoring.
+
+#### Design Patterns and Frameworks
+• python-statemachine library: Used to implement a formal state machine with clearly defined states and transitions.
+• Threading for concurrent operations: Separates display updates from the main thermostat control logic to keep the interface responsive.
+• Event-driven programming: Button callbacks trigger actions and state transitions based on user interaction.
+
+#### Technical Documentation Resources
+• Raspberry Pi GPIO pinout diagrams and electrical specifications used for correct hardware wiring and configuration.
+• 74HC595 shift register datasheet for controlling the seven-segment display.
+• I2C protocol documentation to support communication between multiple connected devices.
+• PCF8574 I2C expander documentation for interfacing with the LCD backpack module.
+
 ## What skills from this project will be particularly transferable to other projects and/or course work?
 #### Answer
 ## How did you make this project maintainable, readable, and adaptable?
