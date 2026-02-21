@@ -6,7 +6,7 @@ Emerging systems architectures and technologies.
 <img width="100%" height="100%" alt="Smarth Thermostat" src="https://github.com/user-attachments/assets/5bf4c3da-cbba-4e3e-bd95-b59af73cc9f8" />
 
 ## Summarize the project and what problem it was solving.
-#### This project implements a smart thermostat system using a Raspberry Pi, designed to create an intuitive and multi-functional temperature control system with clear user feedback. The thermostat operates using three main states (Off, Heat, and Cool) managed through a state machine architecture, while continuously monitoring temperature data from an AHT20 sensor.
+This project implements a smart thermostat system using a Raspberry Pi, designed to create an intuitive and multi-functional temperature control system with clear user feedback. The thermostat operates using three main states (Off, Heat, and Cool) managed through a state machine architecture, while continuously monitoring temperature data from an AHT20 sensor.
 
 The system addresses several practical challenges:
 
