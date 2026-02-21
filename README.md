@@ -47,19 +47,27 @@ Another improvement would be expanding the information shown on the seven-segmen
 ## What tools and/or resources are you adding to your support network?
 #### Hardware Integration Libraries
 • gpiozero: Provides a clean abstraction layer for GPIO control, simplifying button and LED management while supporting built-in features such as hold detection.
+
 • RPLCD: Used for I2C communication with the LCD, allowing simple text positioning and display updates.
+
 • adafruit_ahtx0: Handles communication with the AHT20 sensor to read temperature and humidity data reliably.
+
 • pyserial: Enables UART serial communication for sending data and supporting inter-device monitoring.
 
 #### Design Patterns and Frameworks
 • python-statemachine library: Used to implement a formal state machine with clearly defined states and transitions.
+
 • Threading for concurrent operations: Separates display updates from the main thermostat control logic to keep the interface responsive.
+
 • Event-driven programming: Button callbacks trigger actions and state transitions based on user interaction.
 
 #### Technical Documentation Resources
 • Raspberry Pi GPIO pinout diagrams and electrical specifications used for correct hardware wiring and configuration.
+
 • 74HC595 shift register datasheet for controlling the seven-segment display.
+
 • I2C protocol documentation to support communication between multiple connected devices.
+
 • PCF8574 I2C expander documentation for interfacing with the LCD backpack module.
 
 ## What skills from this project will be particularly transferable to other projects and/or course work?
